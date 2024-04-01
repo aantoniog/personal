@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi novia?</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            font-size: 20px;
+            padding: 10px 30px;
+            margin: 0 10px;
+            border-radius: 30px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        #yesButton {
+            background-color: #77dd77;
+            border-color: #77dd77;
+        }
+
+        #noButton {
+            background-color: #ff6961;
+            border-color: #ff6961;
+        }
+
+        .btn i {
+            margin-right: 10px;
+        }
+
+        #loveMessage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #loveMessage .fa-heart {
+            color: #ff6961;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h1>¿Quieres ser mi novia?</h1>
+            <div class="buttons">
+                <button id="yesButton" class="btn btn-success"><i class="fas fa-heart"></i> Sí</button>
+                <button id="noButton" class="btn btn-danger"><i class="fas fa-times"></i> No</button>
+            </div>
+            <div id="loveMessage" class="text-center"><i class="fas fa-heart"></i> ¡Yo también te amo!</div>
+        </div>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const loveMessage = document.getElementById('loveMessage');
+
+        yesButton.addEventListener('click', () => {
+            loveMessage.style.display = 'block';
+            setTimeout(() => {
+                loveMessage.style.display = 'none';
+            }, 2000); // Ocultar el mensaje después de 2 segundos
+        });
+
+        const noButton = document.getElementById('noButton');
+
+        noButton.addEventListener('click', () => {
+            // Generar una posición aleatoria para el botón "No"
+            const randomX = Math.random() * (window.innerWidth - noButton.clientWidth);
+            const randomY = Math.random() * (window.innerHeight - noButton.clientHeight);
+            
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        });
+    </script>
+</body>
+</html>
